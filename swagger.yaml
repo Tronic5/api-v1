@@ -11,37 +11,6 @@ paths:
       summary: "Get Product list"
       tags:
         - "Product"
-      parameters:
-        - name: "companyId"
-          in: "query"
-          required: true
-          schema:
-            type: "number"
-          description: "Company ID"
-        - name: "productTypeId"
-          in: "query"
-          required: false
-          schema:
-            type: "number"
-          description: "Product Type ID"
-        - name: "productTypeIds"
-          in: "query"
-          required: false
-          schema:
-            type: "string"
-          description: "Product Type ID's"
-        - name: "tagId"
-          in: "query"
-          required: false
-          schema:
-            type: "number"
-          description: "Tag ID"
-        - name: "originId"
-          in: "query"
-          required: false
-          schema:
-            type: "number"
-          description: "Origin Product ID"
       responses:
         "200":
           description: "Successful operation"
@@ -147,9 +116,9 @@ components:
         description_de:
           type: "string"
   securitySchemes:
-    sanctum:
+    token:
       type: "http"
       scheme: "bearer"
       bearerFormat: "JWT"
 security:
-  - sanctum: []
+  - token: []
