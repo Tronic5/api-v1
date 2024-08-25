@@ -59,79 +59,78 @@ paths:
           description: "Forbidden"
         "404":
           description: "Not found"
-    /products/{id}:
-      get:
-        summary: "Get Product by ID"
-        tags:
-          - "Product"
-        parameters:
-          - name: "id"
-            in: "path"
-            required: true
-            schema:
-              type: "integer"
-            description: "Product ID"
-        responses:
-          "200":
-            description: "Successful operation"
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/Product"
-          "400":
-            description: "Bad request"
-          "401":
-            description: "Unauthorized"
-          "403":
-            description: "Forbidden"
-          "404":
-            description: "Not found"
-      put:
-        summary: "Update Product by ID"
-        tags:
-          - "Product"
-        parameters:
-          - name: "id"
-            in: "path"
-            required: true
-            schema:
-              type: "integer"
-            description: "Product ID"
-        requestBody:
+  /products/{id}:
+    get:
+      summary: "Get Product by ID"
+      tags:
+        - "Product"
+      parameters:
+        - name: "id"
+          in: "path"
           required: true
+          schema:
+            type: "integer"
+          description: "Product ID"
+      responses:
+        "200":
+          description: "Successful operation"
           content:
             application/json:
               schema:
-                type: "object"
-                properties:
-                  name_en:
-                    type: "string"
-                    description: "Product name in English"
-                  name_de:
-                    type: "string"
-                    description: "Product name in German"
-                  description_en:
-                    type: "string"
-                    description: "Product description in English"
-                  description_de:
-                    type: "string"
-                    description: "Product description in German"
-                required: []
-        responses:
-          "200":
-            description: "Successful operation"
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/Product"
-          "400":
-            description: "Bad request"
-          "401":
-            description: "Unauthorized"
-          "403":
-            description: "Forbidden"
-          "404":
-            description: "Not found"
+                $ref: "#/components/schemas/Product"
+        "400":
+          description: "Bad request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not found"
+    put:
+      summary: "Update Product by ID"
+      tags:
+        - "Product"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+          description: "Product ID"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                name_en:
+                  type: "string"
+                  description: "Product name in English"
+                name_de:
+                  type: "string"
+                  description: "Product name in German"
+                description_en:
+                  type: "string"
+                  description: "Product description in English"
+                description_de:
+                  type: "string"
+                  description: "Product description in German"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        "400":
+          description: "Bad request"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not found"
 components:
   schemas:
     Product:
